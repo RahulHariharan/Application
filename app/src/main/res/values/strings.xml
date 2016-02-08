@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- ScoreFragment -->
+    <string name="score_text">Your score is: </string>
+
+    <!-- QuizFragment-->
+    <!-- option letters for answers, for example would you like to
+    lock onto answer A, for instance -->
+    <string name="option_A">A.</string>
+    <string name="option_B">B.</string>
+    <string name="option_C">C.</string>
+    <string name="option_D">D.</string>
+
+    <!-- MenuActivity -->
+    <!--Options to display in ActivityMenu's recycler view -->
+    <string-array name="quiz_menu">
+        <item>Geography</item>
+        <item>Science</item>
+        <item>History</item>
+        <item>Art</item>
+        <item>Sports</item>
+    </string-array>
+
+    <string name="app_name">wordpower</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_content">ContentActivity</string>
+
+</resources>

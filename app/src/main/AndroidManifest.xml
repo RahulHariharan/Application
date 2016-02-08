@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mvw.wordpower">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="gn31Md3glY8f01KuhE2OTangoOqWMk4hVpXXKWb4" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="ynVbgvoamWs7H4Zigpw5Vnl433OeiGCDPUNUF7K1" />
+
+        <activity
+            android:name=".activities.MenuActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ContentActivity"
+            android:label="@string/title_activity_content"
+            android:parentActivityName=".activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mvw.wordpower.activities.MenuActivity" />
+        </activity>
+    </application>
+
+</manifest>

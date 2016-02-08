@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    tools:context="fragments.QuizFragment"
+    android:background="#FFEEDD"
+    >
+
+    <TextView
+        android:id="@+id/progress_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="1/20"
+        style="@style/TextStyle"/>
+
+
+
+    <TextView
+        android:id="@+id/tag_A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/option_A"
+        style="@style/TextStyle"
+        />
+
+    <TextView
+        android:id="@+id/answer_option_A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/tag_A"
+        android:text="Amazon"
+        style="@style/TextStyle"
+        />
+
+    <TextView
+        android:id="@+id/tag_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/option_B"
+        style="@style/TextStyle"
+        />
+
+    <TextView
+        android:id="@+id/answer_option_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/tag_B"
+        android:text="Euphrates"
+        style="@style/TextStyle"
+        />
+
+    <TextView
+        android:id="@+id/tag_C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tag_A"
+        android:text="@string/option_C"
+        style="@style/TextStyle" />
+
+    <TextView
+        android:id="@+id/answer_option_C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tag_A"
+        android:layout_toRightOf="@id/tag_C"
+        android:text="Seine"
+        style="@style/TextStyle"
+        />
+
+    <TextView
+        android:id="@+id/tag_D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tag_B"
+        android:layout_centerInParent="true"
+        android:text="@string/option_D"
+        style="@style/TextStyle"
+        />
+
+    <TextView
+        android:id="@+id/answer_option_D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tag_D"
+        android:layout_below="@id/tag_B"
+        android:text="Nile"
+        style="@style/TextStyle"
+        />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is the longest river in the world ?"
+        android:layout_above="@id/tag_A"
+        style="@style/QuestionStyle"
+        />
+
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tag_C"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight = "true"
+    />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="NEXT"/>
+
+    <Button
+        android:id="@+id/giveup_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="GIVE UP"/>
+    
+</RelativeLayout>
