@@ -104,6 +104,15 @@
         style="@style/QuestionStyle"
         />
 
+    <ImageView
+        android:id="@+id/symbol"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/question"
+        android:src="@drawable/notification_done"
+        />
+
 
 
     <ProgressBar

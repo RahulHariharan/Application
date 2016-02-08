@@ -11,7 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -42,6 +45,7 @@ public class QuizFragment extends Fragment{
     TextView mOptionATextView, mOptionBTextView, mOptionCTextView, mOptionDTextView;
     Button mNextButton,mGiveupButton;
     ProgressBar mProgressBar;
+    ImageView mAnswerImageView;
     CountDownTimer mCountDownTimer;
 
     private OnQuizFragmentInteractionListener mListener;
@@ -82,6 +86,7 @@ public class QuizFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_quiz, container, false);
 
+        initializeImageView(view);
         initializeOptionsTextView(view);
         initializeProgressTextView(view);
         initializeNextButton(view);
@@ -135,6 +140,12 @@ public class QuizFragment extends Fragment{
         void onQuizFragmentGiveUpButton();
     }
 
+    // initialize image view associated with answer graphic
+    private void initializeImageView(View view){
+
+        mAnswerImageView = (ImageView)view.findViewById(R.id.symbol);
+    }
+
     // this is to restore all TextViews to Color.TRANSPARENT when a TextView is selecte
     private void clearAllOptions(){
 
@@ -153,7 +164,7 @@ public class QuizFragment extends Fragment{
         this.mOptionDTextView = (TextView)view.findViewById(R.id.answer_option_D);
 
         // attach click listener to mOptionATextView
-        mOptionATextView.setOnClickListener(new View.OnClickListener(){
+        mOptionATextView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -162,11 +173,12 @@ public class QuizFragment extends Fragment{
                 clearAllOptions();
                 mSelectedOption = optionATextView.getText().toString();
                 optionATextView.setTextColor(Color.YELLOW);
+
             }
         });
 
         // attach click listener to mOptionBTextView
-        mOptionBTextView.setOnClickListener(new View.OnClickListener(){
+        mOptionBTextView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -179,7 +191,7 @@ public class QuizFragment extends Fragment{
         });
 
         // attach click listener to mOptionCTextView
-        mOptionCTextView.setOnClickListener(new View.OnClickListener(){
+        mOptionCTextView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -192,7 +204,7 @@ public class QuizFragment extends Fragment{
         });
 
         // attach click listener to mOptionDTextView
-        mOptionDTextView.setOnClickListener(new View.OnClickListener(){
+        mOptionDTextView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -205,11 +217,25 @@ public class QuizFragment extends Fragment{
         });
     }
 
+    // rotate the 'correct-image' when a correct answer is chosen
+    private void rotateCorrectImage(){
 
+        Animation rotate = AnimationUtils.loadAnimation(getActivity(), R.anim.rotate);
+        mAnswerImageView.setImageResource(R.drawable.notification_done);
+        mAnswerImageView.startAnimation(rotate);
+    }
+
+    // rotate the 'wrong-image' when a wrong answer is chosen
+    private void shakeWrongImage(){
+
+        Animation rotate = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
+        mAnswerImageView.setImageResource(R.drawable.notification_error);
+        mAnswerImageView.startAnimation(rotate);
+    }
 
     private void initializeProgressTextView(View view){
         this.mProgressTextView = (TextView)view.findViewById(R.id.progress_text);
-        this.mProgressTextView.setText(Integer.toString(mQuestionCount)+"/"+Integer.toString(Constants.TOTAL_QUESTION_COUNT));
+        this.mProgressTextView.setText(Integer.toString(mQuestionCount) + "/" + Integer.toString(Constants.TOTAL_QUESTION_COUNT));
     }
 
     // Initialize next button and attach click listener
@@ -219,10 +245,13 @@ public class QuizFragment extends Fragment{
         this.mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(mQuestionCount == Constants.TOTAL_QUESTION_COUNT)
                     mListener.onQuizFragmentGiveUpButton();
-                else
+                else {
                     mListener.onQuizFragmentNextButton(mIsCorrect);
+                }
+
             }
         });
 
