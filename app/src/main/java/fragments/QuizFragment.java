@@ -246,17 +246,39 @@ public class QuizFragment extends Fragment{
             @Override
             public void onClick(View v) {
 
-                if(mQuestionCount == Constants.TOTAL_QUESTION_COUNT)
-                    mListener.onQuizFragmentGiveUpButton();
-                else {
-                    mListener.onQuizFragmentNextButton(mIsCorrect);
-                }
+                if (mCountDownTimer != null) mCountDownTimer.cancel();
+
+                // display animation
+                showAnimation();
+                // navigate to next question
+                showNextQuestion();
 
             }
         });
 
         if(mQuestionCount == Constants.TOTAL_QUESTION_COUNT)
             this.mNextButton.setText("Show score!");
+    }
+
+    // method that displays the appropriate animation depending on whether a correct answer is chosen or not
+    // displays a cross with a shake animation if the wrong answer is chosen
+    // displays a tick with a rotate animation if the right answer is chosen
+    private void showAnimation(){
+
+        if(mIsCorrect)
+            rotateCorrectImage();
+        else
+            shakeWrongImage();
+    }
+
+
+    // shows next question if question count is less that total number of questions
+    // else shows score fragment
+    private void showNextQuestion(){
+        if(mQuestionCount < Constants.TOTAL_QUESTION_COUNT)
+            mListener.onQuizFragmentNextButton(mIsCorrect);
+        else
+            mListener.onQuizFragmentGiveUpButton();
     }
 
     // Initialize Give-Up button and attach click listener
@@ -278,20 +300,20 @@ public class QuizFragment extends Fragment{
 
         this.mProgressBar = (ProgressBar)view.findViewById(R.id.progress_bar);
         this.mProgressBar.setMax(Constants.PROGRESS_BAR_MAX);
-        this.mCountDownTimer = new CountDownTimer(Constants.PROGRESS_BAR_MAX*1000,1000){
+        this.mCountDownTimer = new CountDownTimer(Constants.PROGRESS_BAR_MAX,300){
 
             @Override
             public void onTick(long millisUntilFinished) {
-                mProgressBar.setProgress((int)(millisUntilFinished/1000));
+                mProgressBar.setProgress((int)(millisUntilFinished));
             }
 
             @Override
             public void onFinish() {
                 mProgressBar.setProgress(0);
-                if(mQuestionCount < Constants.TOTAL_QUESTION_COUNT)
-                    mListener.onQuizFragmentNextButton(mIsCorrect);
-                else
-                    mListener.onQuizFragmentGiveUpButton();
+                // show animation
+                showAnimation();
+                // show next question
+                showNextQuestion();
             }
         }.start();
     }
