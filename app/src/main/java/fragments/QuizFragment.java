@@ -300,7 +300,7 @@ public class QuizFragment extends Fragment{
 
         this.mProgressBar = (ProgressBar)view.findViewById(R.id.progress_bar);
         this.mProgressBar.setMax(Constants.PROGRESS_BAR_MAX);
-        this.mCountDownTimer = new CountDownTimer(Constants.PROGRESS_BAR_MAX,300){
+        this.mCountDownTimer = new CountDownTimer(Constants.PROGRESS_BAR_MAX,350){
 
             @Override
             public void onTick(long millisUntilFinished) {

@@ -18,4 +18,12 @@ public class Constants {
 
     public static final int TOTAL_QUESTION_COUNT = 5;
     public static final int PROGRESS_BAR_MAX = 4000; // representing milliseconds
+
+    // keys corresponding to Parse database
+    public static final String QUESTION = "question";
+    public static final String ANSWER = "answer";
+    public static final String OPTIONS = "options";
+    public static final String TRIVIA = "trivia";
+
+
 }

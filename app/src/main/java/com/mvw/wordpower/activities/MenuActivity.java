@@ -9,16 +9,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.mvw.wordpower.R;
+import com.parse.FindCallback;
 import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
 
 import adapters.RecyclerAdapter;
+import common.Constants;
 import fragments.QuizFragment.OnQuizFragmentInteractionListener;
+import singletons.ParseInitializerSingleton;
 
 public class MenuActivity extends AppCompatActivity
                           implements OnQuizFragmentInteractionListener{
@@ -83,10 +92,24 @@ public class MenuActivity extends AppCompatActivity
     }
 
     private void initParse(){
-        //Parse.initialize(this);
-        //ParseObject testObject = new ParseObject("TestObject");
-        //testObject.put("foo", "mbar");
-        //testObject.saveInBackground();
+        ParseInitializerSingleton.getInstance(getApplicationContext());
+        /* this is to test if data is retrived from database
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Geography");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    Log.d("score", "Retrieved " + scoreList.size() + " scores");
+                    for(ParseObject object : scoreList){
+                        Log.v("question",object.getString(Constants.QUESTION));
+                        Log.v("answer",object.getString(Constants.ANSWER));
+                        Log.v("options",object.getJSONArray(Constants.OPTIONS).toString());
+                        Log.v("trivia",object.getString(Constants.TRIVIA));
+                    }
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });*/
     }
 
     private void initToolbar(){

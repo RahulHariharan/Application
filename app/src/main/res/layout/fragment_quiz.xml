@@ -101,6 +101,8 @@
         android:layout_height="wrap_content"
         android:text="What is the longest river in the world ?"
         android:layout_above="@id/tag_A"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
         style="@style/QuestionStyle"
         />
 
