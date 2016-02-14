@@ -1,5 +1,9 @@
 <resources>
 
+    <!-- For sync adapter -->
+    <string name="sync_account_type">wordpower.mvw.com</string>
+    <string name="content_authority">com.mvw.wordpower</string>
+
     <!-- ScoreFragment -->
     <string name="score_text">Your score is: </string>
 

@@ -24,6 +24,7 @@ import com.parse.ParseQuery;
 
 import java.util.List;
 
+import adapters.QuizSyncAdapter;
 import adapters.RecyclerAdapter;
 import common.Constants;
 import fragments.QuizFragment.OnQuizFragmentInteractionListener;
@@ -47,9 +48,11 @@ public class MenuActivity extends AppCompatActivity
         initFAB();
         initRecyclerView();
 
+        QuizSyncAdapter.initializeSyncAdapter(this);
+        
         // to be removed
-        Intent intent = new Intent(this,ContentActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this,ContentActivity.class);
+        //startActivity(intent);
     }
 
     @Override

@@ -8,12 +8,12 @@
         "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
-        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_dialog_material_background_light.xml"
-    },
-    {
         "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
+        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_dialog_material_background_light.xml"
     },
     {
         "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
@@ -32,12 +32,12 @@
         "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_ratingbar_full_material.xml"
     },
     {
-        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_done.png",
-        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\src\\main\\res\\drawable\\notification_done.png"
-    },
-    {
         "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
         "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_done.png",
+        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\src\\main\\res\\drawable\\notification_done.png"
     },
     {
         "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
@@ -96,12 +96,12 @@
         "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
-        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_item_background_holo_light.xml"
-    },
-    {
         "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",

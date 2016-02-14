@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\xml\\authenticator.xml",
+        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\src\\main\\res\\xml\\authenticator.xml"
+    },
+    {
+        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\xml\\syncadapter.xml",
+        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\src\\main\\res\\xml\\syncadapter.xml"
+    }
+]

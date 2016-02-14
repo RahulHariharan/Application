@@ -1,9 +1,13 @@
 package com.mvw.wordpower.activities;
 
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,15 +20,40 @@ import com.parse.ParseQuery;
 import java.util.List;
 
 import common.Constants;
+import database.DBContract;
 import fragments.QuizFragment;
 import fragments.ScoreFragment;
 
 public class ContentActivity extends AppCompatActivity
                              implements QuizFragment.OnQuizFragmentInteractionListener,
-                                        ScoreFragment.OnScoreFragmentInteractionListener{
+                                        ScoreFragment.OnScoreFragmentInteractionListener,
+                                        LoaderManager.LoaderCallbacks<Cursor>{
 
     int mQuestionCount;
     int mScoreCount;
+    static final int URI_LOADER = 0;
+
+    private static final String[] FORECAST_COLUMNS = {
+            // In this case the id needs to be fully qualified with a table name, since
+            // the content provider joins the location & weather tables in the background
+            // (both have an _id column)
+            // On the one hand, that's annoying.  On the other, you can search the weather table
+            // using the location set by the user, which is only in the Location table.
+            // So the convenience is worth it.
+            DBContract.GeographyEntry.TABLE_NAME + "." + DBContract.GeographyEntry._ID,
+            DBContract.GeographyEntry.QUESTION,
+            DBContract.GeographyEntry.OPTIONS,
+            DBContract.GeographyEntry.ANSWER,
+            DBContract.GeographyEntry.TRIVIA,
+    };
+
+    // These indices are tied to FORECAST_COLUMNS.  If FORECAST_COLUMNS changes, these
+    // must change.
+    static final int COL_GEOGRAPHY_ID = 0;
+    static final int COL_GEOGRAPHY_QUESTION = 1;
+    static final int COL_GEOGRAPHY_OPTIONS = 2;
+    static final int COL_GEOGRAPHY_ANSWER = 3;
+    static final int COL_GEOGRAPHY_TRIVIA = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +61,19 @@ public class ContentActivity extends AppCompatActivity
         setContentView(R.layout.activity_content);
 
         initializeData();
+        initializeLoader();
         initializeToolbar();
         addQuizFragment();
         queryQuestions();
     }
 
     private void initializeData(){
-
         this.mQuestionCount = 1;
         this.mScoreCount = 0;
+    }
+
+    private void initializeLoader(){
+        getSupportLoaderManager().initLoader(URI_LOADER,null,this);
     }
 
     private void initializeToolbar(){
@@ -145,5 +178,35 @@ public class ContentActivity extends AppCompatActivity
                 }
             }
         });
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int loaderId, Bundle args) {
+
+        switch(loaderId) {
+
+            case URI_LOADER:
+
+                Uri geographyUri = DBContract.GeographyEntry.CONTENT_URI;
+                return new CursorLoader(this,
+                        geographyUri,
+                        FORECAST_COLUMNS,
+                        null,
+                        null,
+                        null);
+
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
     }
 }
