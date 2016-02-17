@@ -45,7 +45,7 @@
             android:authorities="@string/content_authority"
             android:enabled="true"
             android:exported="false"
-            android:syncable="true"/>
+            android:syncable="true" />
 
         <service
             android:name="services.QuizAuthenticatorService"
@@ -54,11 +54,11 @@
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
+
             <meta-data
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
-
         <service
             android:name="services.QuizService"
             android:enabled="true"
@@ -66,10 +66,16 @@
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>
+
             <meta-data
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/syncadapter" />
         </service>
+        <service
+            android:name="services.QuizJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"></service>
     </application>
 
 </manifest>

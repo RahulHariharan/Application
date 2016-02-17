@@ -26,4 +26,7 @@ public class Constants {
     public static final String TRIVIA = "trivia";
 
 
+    // JOB IDs
+    public static final int JOB_ID = 100;
+
 }

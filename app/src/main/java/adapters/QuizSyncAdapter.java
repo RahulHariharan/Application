@@ -27,7 +27,7 @@ import common.Constants;
  */
 public class QuizSyncAdapter extends AbstractThreadedSyncAdapter {
 
-    public static final int SYNC_INTERVAL = 10 * 18;
+    public static final int SYNC_INTERVAL = 1000 * 18;
     public static final int SYNC_FLEXTIME = SYNC_INTERVAL / 3;
     private static final long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
 

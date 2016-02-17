@@ -1,8 +1,15 @@
 package com.mvw.wordpower.activities;
 
+import android.annotation.TargetApi;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +35,7 @@ import adapters.QuizSyncAdapter;
 import adapters.RecyclerAdapter;
 import common.Constants;
 import fragments.QuizFragment.OnQuizFragmentInteractionListener;
+import services.QuizJobService;
 import singletons.ParseInitializerSingleton;
 
 public class MenuActivity extends AppCompatActivity
@@ -37,6 +45,8 @@ public class MenuActivity extends AppCompatActivity
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+
+    private JobScheduler mJobScheduler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +58,13 @@ public class MenuActivity extends AppCompatActivity
         initFAB();
         initRecyclerView();
 
-        QuizSyncAdapter.initializeSyncAdapter(this);
-        
+
+        if(Build.VERSION.SDK_INT < 22)
+            QuizSyncAdapter.initializeSyncAdapter(this);
+
+        else if(Build.VERSION.SDK_INT >= 22)
+            setupJob();
+
         // to be removed
         //Intent intent = new Intent(this,ContentActivity.class);
         //startActivity(intent);
@@ -144,5 +159,30 @@ public class MenuActivity extends AppCompatActivity
         mAdapter = new RecyclerAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
+    }
+
+    private void setupJob() {
+        mJobScheduler = (JobScheduler)getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        //set an initial delay with a Handler so that the data loading by the JobScheduler does not clash with the loading inside the Fragment
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //schedule the job after the delay has been elapsed
+                buildJob();
+            }
+        }, 10000);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void buildJob() {
+
+        ComponentName serviceName = new ComponentName(this, QuizJobService.class);
+        JobInfo jobInfo = new JobInfo.Builder(Constants.JOB_ID, serviceName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setRequiresDeviceIdle(false)
+                .setRequiresCharging(true)
+                .build();
+        int result = mJobScheduler.schedule(jobInfo);
+        if (result == JobScheduler.RESULT_SUCCESS) Log.d("TAG", "Job scheduled successfully!");
     }
 }
