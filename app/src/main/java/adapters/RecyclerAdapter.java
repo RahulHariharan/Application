@@ -1,6 +1,7 @@
 package adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,13 @@ import android.widget.TextView;
 import com.mvw.wordpower.R;
 import common.Constants;
 
+
 /**
  * Created by rahul on 18-01-2016.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and

@@ -36,4 +36,7 @@ public class Constants {
     public static final String FOURTH_SCORE = "fourthscore";
     public static final String FIFTH_SCORE = "fifthscore";
 
+    // key to pass and retrieve quiz_category
+    public static final String QUIZ_CATEGORY = "quiz_cateogory";
+
 }

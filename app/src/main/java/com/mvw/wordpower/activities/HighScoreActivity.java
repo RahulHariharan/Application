@@ -47,13 +47,6 @@ public class HighScoreActivity extends AppCompatActivity {
         initNestedScrollView();
     }
 
-    @Override
-    protected void onResume(){
-      super.onResume();
-
-    }
-
-
 
     private void initNestedScrollView(){
 

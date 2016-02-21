@@ -107,6 +107,7 @@ public class Common {
                 scoreList.remove(scoreList.size()-1);
             }
 
+            updateScores(category,scoreList);
             JSONObject object = jsonScores(scoreList);
 
             return object;
@@ -207,5 +208,28 @@ public class Common {
 
             return null;
         }
+    }
+
+    private static void updateScores(String category,List<Integer> scores){
+
+        switch(category){
+
+            case "geography":
+                Geography.getInstance().setScores(scores);
+                break;
+            case "science":
+                Science.getInstance().setScores(scores);
+                break;
+            case "art":
+                Art.getInstance().setScores(scores);
+                break;
+            case "history":
+                History.getInstance().setScores(scores);
+                break;
+            case "sports":
+                Sports.getInstance().setScores(scores);
+                break;
+        }
+
     }
 }

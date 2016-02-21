@@ -41,6 +41,7 @@ import adapters.RecyclerAdapter;
 import common.Common;
 import common.Constants;
 import fragments.QuizFragment.OnQuizFragmentInteractionListener;
+import listeners.RecyclerItemClickListener;
 import models.Art;
 import models.Geography;
 import models.History;
@@ -78,9 +79,7 @@ public class MenuActivity extends AppCompatActivity
         else if(Build.VERSION.SDK_INT >= 22)
             setupJob();
 
-        // to be removed
-        Intent intent = new Intent(this,HighScoreActivity.class);
-        //startActivity(intent);
+
     }
 
     @Override
@@ -158,7 +157,7 @@ public class MenuActivity extends AppCompatActivity
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                Intent intent = new Intent(getApplicationContext(),HighScoreActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HighScoreActivity.class);
                 startActivity(intent);
 
             }
@@ -176,7 +175,39 @@ public class MenuActivity extends AppCompatActivity
         mAdapter = new RecyclerAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
+        mRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
 
+                        Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
+
+                        switch (position) {
+                            // geography
+                            case 0:
+                                intent.putExtra(Constants.QUIZ_CATEGORY, getString(R.string.geography));
+                                break;
+                            // science
+                            case 1:
+                                intent.putExtra(Constants.QUIZ_CATEGORY, getString(R.string.science));
+                                break;
+                            //art
+                            case 2:
+                                intent.putExtra(Constants.QUIZ_CATEGORY, getString(R.string.art));
+                                break;
+                            // history
+                            case 3:
+                                intent.putExtra(Constants.QUIZ_CATEGORY, getString(R.string.history));
+                                break;
+                            // sports
+                            case 4:
+                                intent.putExtra(Constants.QUIZ_CATEGORY, getString(R.string.sports));
+                                break;
+                        }
+                        startActivity(intent);
+                    }
+                })
+        );
 
     }
 
@@ -249,4 +280,7 @@ public class MenuActivity extends AppCompatActivity
             }
         }).start();
     }
+
+
+
 }

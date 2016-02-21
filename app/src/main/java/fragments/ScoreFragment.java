@@ -65,6 +65,7 @@ public class ScoreFragment extends Fragment {
         if (getArguments() != null) {
             mScore= getArguments().getInt(ARG_SCORE);
             mQuizCategory = getArguments().getString(ARG_CATEGORY);
+            saveScore();
         }
     }
 
@@ -126,7 +127,7 @@ public class ScoreFragment extends Fragment {
     }
 
     // saves score in SharedPreferences if it is a top 5 score.
-    private void saveScore(int score){
+    private void saveScore(){
 
         new Thread(new Runnable(){
 
@@ -137,13 +138,20 @@ public class ScoreFragment extends Fragment {
                                                getSharedPreferences(getActivity().getResources().getString(R.string.preference_key)
                                                        ,Context.MODE_PRIVATE);
 
-                JSONObject object = Common.setScore(mQuizCategory,mScore,sharedPref);
+                JSONObject object = Common.setScore(mQuizCategory, mScore, sharedPref);
 
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(mQuizCategory,object.toString());
-                editor.apply();
+                editor.putString(mQuizCategory, object.toString());
+                editor.commit();
             }
         }).start();
+    }
+
+    private void setDataFromPreferences(){
+
+        SharedPreferences preferences = getActivity().getSharedPreferences(getActivity().getString(R.string.preference_key),Context.MODE_PRIVATE);
+
+
     }
 
 }

@@ -1,5 +1,6 @@
 package com.mvw.wordpower.activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class ContentActivity extends AppCompatActivity
 
     int mQuestionCount;
     int mScoreCount;
-    String mQuizCategory = "science";
+    String mQuizCategory;
 
     static final int URI_LOADER = 0;
 
@@ -67,11 +68,17 @@ public class ContentActivity extends AppCompatActivity
         initializeToolbar();
         addQuizFragment();
         queryQuestions();
+
     }
 
     private void initializeData(){
         this.mQuestionCount = 1;
         this.mScoreCount = 0;
+        // get quiz category
+        Intent intent = getIntent();
+        if(intent != null){
+            mQuizCategory = intent.getStringExtra(Constants.QUIZ_CATEGORY);
+        }
     }
 
     private void initializeLoader(){
