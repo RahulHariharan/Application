@@ -19,7 +19,7 @@ public class QuizService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.v("Sdf3","Sdf3");
+
         synchronized (sSyncAdapterLock) {
             if (sQuizSyncAdapter == null) {
                 sQuizSyncAdapter = new QuizSyncAdapter(getApplicationContext(), true);

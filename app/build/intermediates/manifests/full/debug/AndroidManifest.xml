@@ -77,6 +77,21 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/syncadapter" />
         </service>
+        <service
+            android:name="services.QuizJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name="com.mvw.wordpower.activities.HighScoreActivity"
+            android:label="@string/title_activity_high_score"
+            android:parentActivityName="com.mvw.wordpower.activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mvw.wordpower.activities.MenuActivity" />
+        </activity>
     </application>
 
 </manifest>

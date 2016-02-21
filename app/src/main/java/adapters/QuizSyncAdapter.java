@@ -136,6 +136,7 @@ public class QuizSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     public static void initializeSyncAdapter(Context context) {
+
         getSyncAccount(context);
     }
 }

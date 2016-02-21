@@ -31,6 +31,8 @@ public class ContentActivity extends AppCompatActivity
 
     int mQuestionCount;
     int mScoreCount;
+    String mQuizCategory = "science";
+
     static final int URI_LOADER = 0;
 
     private static final String[] FORECAST_COLUMNS = {
@@ -148,7 +150,7 @@ public class ContentActivity extends AppCompatActivity
         QuizFragment quizFragment  = (QuizFragment)manager.findFragmentByTag(Constants.QUIZ_FRAGMENT_TAG);
         transaction.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out);
         transaction.remove(quizFragment);
-        ScoreFragment scoreFragment = ScoreFragment.newInstance(this.mScoreCount);
+        ScoreFragment scoreFragment = ScoreFragment.newInstance(this.mScoreCount,this.mQuizCategory);
         transaction.add(R.id.container,scoreFragment,Constants.SCORE_FRAGMENT_TAG);
         transaction.commit();
     }

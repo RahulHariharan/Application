@@ -29,4 +29,11 @@ public class Constants {
     // JOB IDs
     public static final int JOB_ID = 100;
 
+    // for JSONObject score keys
+    public static final String FIRST_SCORE = "firstscore";
+    public static final String SECOND_SCORE = "secondscore";
+    public static final String THIRD_SCORE = "thirdscore";
+    public static final String FOURTH_SCORE = "fourthscore";
+    public static final String FIFTH_SCORE = "fifthscore";
+
 }

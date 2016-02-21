@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_high_score.xml",
+        "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\src\\main\\res\\menu\\menu_high_score.xml"
+    },
+    {
         "merged": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_play.xml",
         "source": "C:\\Users\\rahul\\AndroidStudioProjects\\wordpower\\app\\src\\main\\res\\menu\\menu_play.xml"
     }

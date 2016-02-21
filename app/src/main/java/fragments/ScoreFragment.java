@@ -1,6 +1,7 @@
 package fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mvw.wordpower.R;
+
+import org.json.JSONObject;
+
+import common.Common;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,8 +28,10 @@ public class ScoreFragment extends Fragment {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_SCORE = "param_score";
+    private static final String ARG_CATEGORY = "quiz_category";
 
     private int mScore;
+    private String mQuizCategory;
 
     // UI Elements
     TextView mScoreTextView;
@@ -43,10 +50,11 @@ public class ScoreFragment extends Fragment {
      * @return A new instance of fragment ScoreFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ScoreFragment newInstance(int score) {
+    public static ScoreFragment newInstance(int score,String category) {
         ScoreFragment fragment = new ScoreFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SCORE, score);
+        args.putString(ARG_CATEGORY,category);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,6 +64,7 @@ public class ScoreFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mScore= getArguments().getInt(ARG_SCORE);
+            mQuizCategory = getArguments().getString(ARG_CATEGORY);
         }
     }
 
@@ -115,4 +124,26 @@ public class ScoreFragment extends Fragment {
         // TODO: Update argument type and name
         void onScoreFragmentInteraction(Uri uri);
     }
+
+    // saves score in SharedPreferences if it is a top 5 score.
+    private void saveScore(int score){
+
+        new Thread(new Runnable(){
+
+            @Override
+            public void run() {
+
+                SharedPreferences sharedPref = getActivity().
+                                               getSharedPreferences(getActivity().getResources().getString(R.string.preference_key)
+                                                       ,Context.MODE_PRIVATE);
+
+                JSONObject object = Common.setScore(mQuizCategory,mScore,sharedPref);
+
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(mQuizCategory,object.toString());
+                editor.apply();
+            }
+        }).start();
+    }
+
 }

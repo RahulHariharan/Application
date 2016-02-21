@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:2:1-75:12
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:2:1-91:12
 	xmlns:android
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -30,7 +30,7 @@ ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:8:22-75
 application
-ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:10:5-73:19
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:10:5-89:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\rahul\AndroidStudioProjects\wordpower\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] C:\Users\rahul\AndroidStudioProjects\wordpower\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.1.1] C:\Users\rahul\AndroidStudioProjects\wordpower\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\AndroidManifest.xml:22:5-20
@@ -96,7 +96,7 @@ ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidMa
 	android:value
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:40:17-74
 provider#providers.QuizProvider
-ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:43:9-48:38
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:43:9-48:39
 	android:syncable
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:48:13-36
 	android:exported
@@ -108,7 +108,7 @@ ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:44:13-50
 service#services.QuizAuthenticatorService
-ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:50:9-60:19
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:50:9-61:19
 	android:exported
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:53:13-37
 	android:enabled
@@ -122,13 +122,13 @@ ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:55:25-77
 meta-data#android.accounts.AccountAuthenticator
-ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:57:13-59:57
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:58:13-60:57
 	android:resource
-		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:59:17-54
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:60:17-54
 	android:name
-		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:58:17-69
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:59:17-69
 service#services.QuizService
-ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:62:9-72:19
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:62:9-73:19
 	android:exported
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:65:13-36
 	android:enabled
@@ -142,11 +142,31 @@ ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:67:25-67
 meta-data#android.content.SyncAdapter
-ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:69:13-71:55
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:70:13-72:55
 	android:resource
-		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:71:17-52
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:72:17-52
 	android:name
-		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:70:17-59
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:71:17-59
+service#services.QuizJobService
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:74:9-78:72
+	android:exported
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:77:13-37
+	android:enabled
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:76:13-35
+	android:permission
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:78:13-69
+	android:name
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:75:13-51
+activity#com.mvw.wordpower.activities.HighScoreActivity
+ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:80:9-88:20
+	android:label
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:82:13-62
+	android:theme
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:84:13-56
+	android:parentActivityName
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:83:13-66
+	android:name
+		ADDED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml:81:13-57
 uses-sdk
 INJECTED from C:\Users\rahul\AndroidStudioProjects\wordpower\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\rahul\AndroidStudioProjects\wordpower\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:20:5-43

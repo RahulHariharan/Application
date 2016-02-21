@@ -1,4 +1,7 @@
 <resources>
+    <!-- Text size for scores in HighScoreActivity -->
+    <dimen name="score_text_size">30sp</dimen>
+
     <!-- height of each menu option in recycler element -->
     <dimen name="recycler_element_height">200dp</dimen>
 
@@ -6,4 +9,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

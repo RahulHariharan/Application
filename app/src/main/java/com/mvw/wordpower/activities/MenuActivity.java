@@ -6,6 +6,7 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.mvw.wordpower.R;
 import com.parse.FindCallback;
@@ -29,12 +31,22 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 
 import adapters.QuizSyncAdapter;
 import adapters.RecyclerAdapter;
+import common.Common;
 import common.Constants;
 import fragments.QuizFragment.OnQuizFragmentInteractionListener;
+import models.Art;
+import models.Geography;
+import models.History;
+import models.QuizSection;
+import models.Science;
+import models.Sports;
 import services.QuizJobService;
 import singletons.ParseInitializerSingleton;
 
@@ -45,7 +57,6 @@ public class MenuActivity extends AppCompatActivity
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
     private JobScheduler mJobScheduler;
 
     @Override
@@ -57,8 +68,10 @@ public class MenuActivity extends AppCompatActivity
         initToolbar();
         initFAB();
         initRecyclerView();
+        initScores();
 
 
+        // TODO: IllegalStateException occurs here
         if(Build.VERSION.SDK_INT < 22)
             QuizSyncAdapter.initializeSyncAdapter(this);
 
@@ -66,7 +79,7 @@ public class MenuActivity extends AppCompatActivity
             setupJob();
 
         // to be removed
-        //Intent intent = new Intent(this,ContentActivity.class);
+        Intent intent = new Intent(this,HighScoreActivity.class);
         //startActivity(intent);
     }
 
@@ -144,6 +157,10 @@ public class MenuActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+                Intent intent = new Intent(getApplicationContext(),HighScoreActivity.class);
+                startActivity(intent);
+
             }
         });
     }
@@ -158,6 +175,8 @@ public class MenuActivity extends AppCompatActivity
 
         mAdapter = new RecyclerAdapter();
         mRecyclerView.setAdapter(mAdapter);
+
+
 
     }
 
@@ -184,5 +203,50 @@ public class MenuActivity extends AppCompatActivity
                 .build();
         int result = mJobScheduler.schedule(jobInfo);
         if (result == JobScheduler.RESULT_SUCCESS) Log.d("TAG", "Job scheduled successfully!");
+    }
+
+    private void initScores(){
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    SharedPreferences preferences = getSharedPreferences(getResources().getString(R.string.preference_key), Context.MODE_PRIVATE);
+
+                    // length of these arrays should match
+                    // and values MUST correspond to each other
+                    String[] sectionKeys = getApplicationContext().
+                                           getResources().
+                                           getStringArray(R.array.quiz_keys);
+
+                    QuizSection[] quizSections = {Geography.getInstance(),
+                                                  Science.getInstance(),
+                                                  Art.getInstance(),
+                                                  History.getInstance(),
+                                                  Sports.getInstance()};
+
+                    // length must be the same as sectionKeys.
+                    int length = quizSections.length;
+                    if(sectionKeys.length == quizSections.length){
+
+                        for(int index =0; index <length; index++){
+                            Common.initPreference(preferences,
+                                                  sectionKeys[index],
+                                                  quizSections[index]);
+                        }
+                    }
+
+                }
+                catch(NullPointerException exception){
+
+                }
+                catch(Exception exception){
+
+                    exception.printStackTrace();
+                }
+
+            }
+        }).start();
     }
 }
