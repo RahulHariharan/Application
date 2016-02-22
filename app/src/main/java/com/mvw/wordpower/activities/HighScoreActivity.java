@@ -102,11 +102,12 @@ public class HighScoreActivity extends AppCompatActivity {
 
 
     private void setScores(List<Integer> scores, LinearLayout layout){
-
+        
         for(int i=1; i<=5; i++){
             LinearLayout subLayout = (LinearLayout)layout.getChildAt(i);
             TextView textView = (TextView)subLayout.getChildAt(1);
             int score = scores.get(i-1);
+
             if(score > -1)
                 textView.setText(scores.get(i - 1).toString());
         }

@@ -147,11 +147,5 @@ public class ScoreFragment extends Fragment {
         }).start();
     }
 
-    private void setDataFromPreferences(){
-
-        SharedPreferences preferences = getActivity().getSharedPreferences(getActivity().getString(R.string.preference_key),Context.MODE_PRIVATE);
-
-
-    }
 
 }

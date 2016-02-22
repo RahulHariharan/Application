@@ -87,6 +87,7 @@ public class Common {
 
             List<Integer> scoreList = getScores(previousScores);
             Collections.sort(scoreList);
+            Collections.reverse(scoreList);
 
             int length = scoreList.size();
             int index = -1;
@@ -99,8 +100,10 @@ public class Common {
             }
 
             if(index != -1){
+                //Log.v("index",Integer.toString(index));
                 // add new score to indexed position
-                scoreList.add(index,score);
+                scoreList.add(index,Integer.valueOf(score));
+                //Log.v("index score",scoreList.toString());
                 // remove the last score as the length of the list
                 // has increased to 6 as a result of the previous operation
                 if(scoreList.size() > 0)
