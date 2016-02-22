@@ -100,9 +100,9 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
-
+    // sets scores to TextViews
     private void setScores(List<Integer> scores, LinearLayout layout){
-        
+
         for(int i=1; i<=5; i++){
             LinearLayout subLayout = (LinearLayout)layout.getChildAt(i);
             TextView textView = (TextView)subLayout.getChildAt(1);
